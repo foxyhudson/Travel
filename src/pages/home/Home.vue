@@ -1,17 +1,24 @@
 <template>
-    <home-header></home-header>
+    <div>
+      <home-header></home-header>
+      <home-swiper></home-swiper>
+    </div>
 </template>
 
 <script>
     import HomeHeader from './components/Header'
+    import HomeSwiper from './components/Swiper'
+    // import HomeSwiper from './components/Swiper'
     //引入组件
     export default {
         name: "Home",
         components:{
-          HomeHeader
+          HomeHeader,
+          HomeSwiper
         }
     }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
+
 </style>
