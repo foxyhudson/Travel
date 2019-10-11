@@ -2,7 +2,7 @@
   <div class="wrapper">
     <swiper :options="swiperOption" ref="mySwiper" >
       <!-- slides -->
-      <swiper-slide v-for="item of swiperList" key="item.id">
+      <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
 
@@ -26,7 +26,7 @@
             },
             {
               id:'0002',
-              imgUrl:'https://img1.5173.com//e535e2aead824a4d8539b6edda7c3db1.jpg'
+              imgUrl:'https://sk.5173cdn.com/sk_4/data/201909/00/C1/SwKowF2RUGAAAAAAAAgpIw5PJ8088.png'
             }]
           }
         }
@@ -36,12 +36,16 @@
 <style lang="stylus" scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+
   .wrapper
-    width:100%
-    height:31.25vw
-    background:#ccc
+    overflow: hidden
+    width: 100%
+    height: 0
+    padding-bottom: 31.25%
+    background: #eee
     .swiper-img
-      width:100%
-      height :3.5rem
-      overflow hidden
+      width: 100%
+      height : 2.6rem
+
+
 </style>
