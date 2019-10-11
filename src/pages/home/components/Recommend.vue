@@ -17,24 +17,11 @@
 <script>
     export default {
         name: "HomeRecommend",
+        props:{
+          recommendList:Array
+        },
         data(){
           return{
-            recommendList:[{
-              id:'0001',
-              imgUrl:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg",
-              title:"北京世界园艺博览会",
-              desc:"导游 柳青玲 的讲解非常棒！声音洪亮，思路清晰！体验很好，一场爱国主义教育"},
-              {
-                id:'0002',
-                imgUrl:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg",
-                title:"北京世界园艺博览会",
-                desc:"导游 柳青玲 的讲解非常棒！声音洪亮，思路清晰！体验很好，一场爱国主义教育"},
-              {
-                id:'0003',
-                imgUrl:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg",
-                title:"北京世界园艺博览会",
-                desc:"导游 柳青玲 的讲解非常棒！声音洪亮，思路清晰！体验很好，一场爱国主义教育"},
-              ]
           }
         }
     }

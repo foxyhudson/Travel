@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper" >
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
@@ -14,20 +14,29 @@
 <script>
     export default {
         name: "HomeSwiper",
+        props:{
+          swiperList:Array
+        },
+        computed:{
+          showSwiper(){
+            return this.swiperList.length
+          }
+        },
         data () {
           return{
             swiperOption:{
               pagination:'.swiper-pagination',
-              loop: true
+              loop: true,
+              autoplay: 3000
             },
-            swiperList:[{
-              id:'0001',
-              imgUrl:'https://i0.hdslb.com/bfs/sycp/creative_img/201910/723f2b2ed088fa894e864b1bad13de32.jpg@1100w_484h_1c_100q.jpg'
-            },
-            {
-              id:'0002',
-              imgUrl:'https://sk.5173cdn.com/sk_4/data/201909/00/C1/SwKowF2RUGAAAAAAAAgpIw5PJ8088.png'
-            }]
+            // swiperList:[{
+            //   id:'0001',
+            //   imgUrl:'https://i0.hdslb.com/bfs/sycp/creative_img/201910/723f2b2ed088fa894e864b1bad13de32.jpg@1100w_484h_1c_100q.jpg'
+            // },
+            // {
+            //   id:'0002',
+            //   imgUrl:'https://sk.5173cdn.com/sk_4/data/201909/00/C1/SwKowF2RUGAAAAAAAAgpIw5PJ8088.png'
+            // }]
           }
         }
     }

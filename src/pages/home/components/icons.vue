@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-      <swiper>
+      <swiper :options="swiperOption" v-if="showIcons">
         <swiper-slide v-for="(page,index) of pages" :key="index">
           <div class="icon"  v-for="item of pages[index]" :key="item.id">
             <div class="icon-img">
@@ -16,57 +16,20 @@
 <script>
     export default {
         name: "HomeIcons",
+        props:{
+          iconList:Array
+        },
         data () {
           return{
-            iconList:[{
-              id:"0001",
-              imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-              desc:"景点门票"
-              },
-              {
-                id:"0002",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-                desc:"动植物园"
-              },
-              {
-                id:"0003",
-                imgUrl:"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/3ef092d0a89ffddb7f781cda30c8ae49.png",
-                desc:"国庆大促"
-              },
-              {
-                id:"0004",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/f5/c4c9d9830404e602.png",
-                desc:"室内娱乐"
-              },
-              {
-                id:"0005",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-                desc:"一日游"
-              },
-              {
-                id:"0006",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-                desc:"上海野生"
-              },
-              {
-                id:"0007",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png",
-                desc:"黄浦江游船"
-              }, {
-                id:"0008",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/de/f26be47a6bf02a02.png",
-                desc:"上海迪士尼"
-              },
-              {
-                id:"0009",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-                desc:"一日游"
-              },
-
-            ]
+            swiperOption:{
+              autoplay:false
+            }
           }
         },
       computed:{
+          showIcons(){
+            return this.iconList.length
+          },
           pages () {
             const pages = []
             this.iconList.forEach((item,index)=>{
