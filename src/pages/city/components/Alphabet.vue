@@ -48,7 +48,7 @@
                 clearTimeout(this.time)
               }
               this.timer = setTimeout(()=>{ //节流 延迟16毫秒后执行 降低move频率提高性能
-                const touchY = e.touches[0].clientY//e.touches[0]事件对象获取到手指所在位置信息 需要减去上面绿色 高度
+                const touchY = e.touches[0].clientY - 79//e.touches[0]事件对象获取到手指所在位置信息 需要减去上面绿色 高度
                 console.log(touchY)
                 const index = Math.floor((touchY - this.startY) / 20) //20是每个字母的高度 通过这样能知道是第几个字母
                 console.log(index)
@@ -73,7 +73,7 @@ f
     justify-content: center     //垂直居中
     position: absolute;
     right: 0
-    top :.0
+    top: 1.58rem
     bottom: 0
     width: .4rem
     .item
