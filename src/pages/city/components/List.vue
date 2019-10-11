@@ -18,7 +18,7 @@
          </div>
        </div>
        <div class="area border-topbottom">
-         <div v-for="(item,key) of cities" :key="key">
+         <div v-for="(item,key) of cities" :key="key" :ref="key">
            <div class="title border-topbottom">{{key}}</div>
 <!--           <div v-for="(item,index) of getCityname({{item}})">-->
            <div class="item-list" >
@@ -36,7 +36,8 @@
         name: "CityList",
         props:{
           hotCities:  Array,
-          cities: Object
+          cities: Object,
+          letter: String
         },
         mounted() {
           this.scroll = new Bscroll(this.$refs.wrapper)
@@ -45,6 +46,15 @@
           getCity(){
 
           },
+        },
+        watch:{
+          letter(){
+            if(this.letter){
+              const element = this.$refs[this.letter][0]
+              console.log(element)
+              this.scroll.scrollToElement(element)
+            }
+          }
         }
   }
 </script>
@@ -60,21 +70,21 @@
     &:before
       border-color: #ccc
   .list
-    overflow:hidden  //用了后不能上下拖动了 之后配个一个插件即可
-    position:absolute
-    top:1.58rem //留给头部
-    left:0
-    right:0
-    bottom:0
+    overflow: hidden
+    position: absolute
+    top: 1.58rem
+    left: 0
+    right: 0
+    bottom: 0
     .title
       line-height: .54rem
       background: #eee
       padding-left: .2rem
-      color:#666
+      color: #666
       font-size: .26rem
     .button-list
-      padding: .1rem .6rem .1rem .1rem //为拼音留位置
       overflow: hidden
+      padding: .1rem .6rem .1rem .1rem
       .button-wrapper
         float: left
         width: 33.33%
@@ -83,9 +93,9 @@
           padding: .1rem 0
           text-align: center
           border: .02rem solid #ccc
-          border-radius: .03rem
+          border-radius: .06rem
     .item-list
       .item
-        line-height:.76rem
+        line-height: .76rem
         padding-left: .2rem
 </style>
