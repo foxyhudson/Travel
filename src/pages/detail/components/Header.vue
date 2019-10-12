@@ -45,10 +45,13 @@
         },
         activated(){
           window.addEventListener('scroll',this.handleScroll) //当屏幕滚动就触发
+        },
+        deactivated(){
+          window.removeEventListener('scroll',this.handleScroll)
         }
     }
 </script>
-
+a
 <style lang="stylus" scoped>
   @import "~styles/varibles.styl"
   .header-abs
