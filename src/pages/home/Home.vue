@@ -28,7 +28,7 @@
         },
         data(){
           return{
-            city:"",
+
             swiperList: [],
             iconList:[],
             recommendList:[],
@@ -36,17 +36,7 @@
           }
         },
         methods:{
-          getHomeInfo(){
-            axios.get('api/city.json')
-              .then(this.getHomeInfoSucc)
-          },
-          getHomeInfoSucc(res){
-            res = res.data
-            if(res.ret  && res.data){
-              const data = res.data
-              this.city = data.cities.A[0].name
-            }
-          },
+
           swiperListInfo(){
             axios.get('api/index.json')
               .then(this.getSwiperList)
@@ -64,7 +54,7 @@
           }
         },
         mounted(){
-          this.getHomeInfo()
+
           this.swiperListInfo()
 
         }

@@ -8,7 +8,7 @@
        输入城市/景点/游玩主题</div>
      <router-link to="/city">
        <div class="header-right">
-         {{city}}
+         <span class="header-right-font">{{city}}</span>
          <span class="iconfont iconjiantou_xia arrow-icon"></span>
        </div>
      </router-link>
@@ -16,16 +16,22 @@
 </template>
 
 <script>
+    import {mapState ,mapGetters} from 'vuex'
     export default {
         name: "HomeHeader",
-        props:{
-          city:String
+        computed:{
+          ...mapState(['city']),  //把state里的city映射过来
+            ...mapGetters(['doubleCity'])
         }
+        // props:{
+        //   city:String
+        // }
     }
 </script>
 
 <style lang="stylus" scoped>
   @import "~styles/varibles.styl"
+  @import "~styles/mixins.styl"
   .header
     display:  flex
     line-height: $headerHeight
@@ -46,14 +52,14 @@
       margin-left: .2rem
       border-radius :.1rem
       color: #ccc
-      padding-left: .2rem
+      padding-left: .1rem
 
     .header-right
       color :#fff
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0.1rem
       float:  right
       text-align: center
       .arrow-icon
-
         font-size: .05rem
 </style>
