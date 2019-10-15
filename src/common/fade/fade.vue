@@ -14,5 +14,5 @@
   .v-enter, .v-leave-to
     opacity :0
   .v-enter-active, .v-leave-to
-    transition: opacity .5s
+    transition: opacity .6s
 </style>
